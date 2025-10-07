@@ -1,38 +1,28 @@
-FROM osrf/ros:humble-desktop-full AS builder
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Seoul
 
-WORKDIR /ros2_ws
+WORKDIR /workspace
 
-
-# Install required packages
 RUN apt-get update && apt-get install -y \
-      tree \
-      cmake \
-      build-essential \
-      git \
-      python3-pip \
-      ros-humble-demo-nodes-cpp \
-      ros-humble-demo-nodes-py && \
-      pip install --no-cache-dir numpy onnxruntime torch && \
-    rm -rf /var/lib/apt/lists/*
+    cmake \
+    build-essential \
+    git \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy source files
-COPY . .
+COPY . /workspace/
 
-# Resolve ROS2 dependencies conflict
-RUN rosdep update
-RUN rosdep install --from-paths src --ignore-src -y --rosdistro humble
+RUN chmod +x build.sh
 
-RUN colcon build --symlink-install
+RUN sed -i '/sudo apt update/,/echo "System dependencies installed successfully!"/c\echo "Skipping system dependencies (already installed in Docker image)"' build.sh && \
+    ./build.sh
 
+# Set the entry point to a helper script
 COPY docker_entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker_entrypoint.sh
 ENTRYPOINT ["docker_entrypoint.sh"]
 
-# CMD ["ros2", "launch", "your_package_name", "your_launch_file.py"]
-
-
-
-
+# Default command (can be overridden)
+CMD ["--help"]
