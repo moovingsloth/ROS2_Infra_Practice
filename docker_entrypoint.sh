@@ -1,6 +1,21 @@
 #!/bin/bash
+set -e
 
-source /opt/ros/humble/setup.bash
-source /ros2_ws/install/setup.bash
+# Parse arguments
+DATASET_PATH=""
+if [ -n "$1" ]; then
+    DATASET_PATH=$1
+fi
 
-exec "$@"
+# Change to the build directory
+cd /workspace/build
+
+# Check if a dataset path is provided
+if [ -z "$DATASET_PATH" ]; then
+    echo "No dataset path provided. Running with --help."
+    exec ./main_program --help
+else
+    echo "Dataset path provided: $DATASET_PATH"
+    echo "Starting interactive shell..."
+    exec /bin/bash
+fi

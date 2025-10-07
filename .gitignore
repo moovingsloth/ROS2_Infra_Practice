@@ -1,1 +1,79 @@
 dataset/
+
+# Build directories and files
+build/
+Build/
+BUILD/
+build-*/
+install/
+log/
+devel/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Makefile
+*.cmake
+
+# Compiled object files
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# Executable files
+*.exe
+*.out
+*.app
+
+# ROS2 specific
+install/
+log/
+build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Log files
+*.log
+logs/
+
+# Test results
+results/
+test_results/
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Package files
+*.tar.gz
+*.zip
+*.deb
+*.rpm

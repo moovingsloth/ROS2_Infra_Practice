@@ -8,6 +8,8 @@ WORKDIR /workspace
 RUN apt-get update && apt-get install -y \
     cmake \
     build-essential \
+    libopencv-dev \
+    libeigen3-dev \
     git \
     wget \
     && rm -rf /var/lib/apt/lists/*
