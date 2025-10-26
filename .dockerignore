@@ -1,0 +1,43 @@
+# Exclude datasets from Docker build context
+dataset/
+datasets/
+
+# Build directories and files
+build/
+Build/
+BUILD/
+build-*/
+
+# Large data files
+*.zip
+*.tar.gz
+*.bag
+*.db3
+*.rosbag
+*.rosbag2
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git files
+.git/
+.gitignore
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Log files
+*.log
+logs/
+
+# Test results
+results/
+test_results/

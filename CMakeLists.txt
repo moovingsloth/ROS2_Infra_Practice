@@ -16,8 +16,8 @@ file(GLOB_RECURSE SOURCES
     "src/module/*.cpp"
 )
 
+# Euroc test
 add_executable(test_euroc test.cpp ${SOURCES})
-
 target_link_libraries(test_euroc ${OpenCV_LIBS})
 
 # Link Eigen3
