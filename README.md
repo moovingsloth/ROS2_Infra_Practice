@@ -1,9 +1,3 @@
-알겠습니다!
-GitHub README 파일에서 • 대신 마크다운에서 권장하는 리스트 표기인 - 혹은 * 로 바꾸고, 들여쓰기와 줄바꿈을 적절히 넣어 가독성 좋게 다시 작성해드릴게요.
-
-⸻
-
-
 # ROS2_Infra_Practice
 
 This ROS2 CI/CD project is designed for learning the core principles of Robotics DevOps.  
